@@ -9,22 +9,32 @@ fun main() {
     var count: Int by mutableStateOf(0)
 
     renderComposable(rootElementId = "root") {
-        Div({ style { padding(25.px) } }) {
-            Button(attrs = {
-                onClick { count -= 1 }
-            }) {
-                Text("-")
+//        Div({ style { padding(25.px) } }) {
+//            Button(attrs = {
+//                onClick { count -= 1 }
+//            }) {
+//                Text("-")
+//            }
+//
+//            Span({ style { padding(15.px) } }) {
+//                Text("$count")
+//            }
+//
+//            Button(attrs = {
+//                onClick { count += 1 }
+//            }) {
+//                Text("+")
+//            }
+//        }
+        Div(
+            attrs = {
+                // specify attributes here
+                style {
+                    // specify inline style here
+                }
             }
+        ) {
 
-            Span({ style { padding(15.px) } }) {
-                Text("$count")
-            }
-
-            Button(attrs = {
-                onClick { count += 1 }
-            }) {
-                Text("+")
-            }
         }
     }
 }

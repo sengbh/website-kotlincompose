@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="sengbh-js-1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/sengbh/build/libs</output-path>
+    <root id="archive" name="sengbh-js-1.0-SNAPSHOT.jar" />
+  </artifact>
+</component>
