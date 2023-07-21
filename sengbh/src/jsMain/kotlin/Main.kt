@@ -1,41 +1,65 @@
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.Composable
 import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.FlexDirection.Companion.Column
+import org.jetbrains.compose.web.css.GridAutoFlow.Column
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
 
-fun main() {
-    var count: Int by mutableStateOf(0)
 
-    renderComposable(rootElementId = "root") {
-//        Div({ style { padding(25.px) } }) {
-//            Button(attrs = {
-//                onClick { count -= 1 }
-//            }) {
-//                Text("-")
-//            }
-//
-//            Span({ style { padding(15.px) } }) {
-//                Text("$count")
-//            }
-//
-//            Button(attrs = {
-//                onClick { count += 1 }
-//            }) {
-//                Text("+")
-//            }
-//        }
-        Div(
-            attrs = {
-                // specify attributes here
-                style {
-                    // specify inline style here
-                }
-            }
-        ) {
+object MyVariables {
+    // declare a variable
+    val contentBackgroundColor by variable<CSSColorValue>()
+}
 
-        }
+object MyStyleSheet: StyleSheet() {
+
+    val container by style {
+        //set variable's value for the `container` scope
+        MyVariables.contentBackgroundColor(Color("gray"))
+    }
+
+    val content by style {
+        // get the value
+        backgroundColor(MyVariables.contentBackgroundColor.value())
+    }
+
+    val contentWithDefaultBgColor by style {
+        // default value can be provided as well
+        // default value is used when the value is not previously set
+        backgroundColor(MyVariables.contentBackgroundColor.value(Color("#66cc66")))
     }
 }
 
+object AppStylesheet : StyleSheet() {
+    val container by style { // container is a class
+        display(DisplayStyle.Table)
+        padding(80.px)
+        textAlign("right")
+
+        // custom property (or not supported out of a box)
+        property("font-family", "Arial, Helvetica, sans-serif")
+    }
+}
+
+@Composable
+fun Container(content: @Composable () -> Unit) {
+    Div(
+        attrs = { classes(AppStylesheet.container) }
+    ) {
+        content()
+    }
+}
+
+
+fun main() {
+    renderComposable(rootElementId = "root") {
+        Div({
+
+        }) {
+            Style(AppStylesheet)
+            Container {
+                Text("Stuff here to see")
+            }
+        }
+    }
+}
