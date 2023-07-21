@@ -35,6 +35,7 @@ object AppStylesheet : StyleSheet() {
         display(DisplayStyle.Table)
         padding(80.px)
         textAlign("right")
+        gridColumn(start = 19, end = 20)
 
         // custom property (or not supported out of a box)
         property("font-family", "Arial, Helvetica, sans-serif")
