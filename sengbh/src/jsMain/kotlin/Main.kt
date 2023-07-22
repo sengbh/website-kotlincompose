@@ -1,7 +1,10 @@
+import AppStylesheet.containerBackground
+import AppStylesheet.style
 import androidx.compose.runtime.*
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
+import org.w3c.fetch.Body
 
 
 object MyVariables {
@@ -18,7 +21,7 @@ object MyStyleSheet: StyleSheet() {
 
     val content by style {
         // get the value
-        backgroundColor(MyVariables.contentBackgroundColor.value(Color("#66cc66")))
+        backgroundColor(MyVariables.contentBackgroundColor.value(Color("green")))
     }
 
     val contentWithDefaultBgColor by style {
@@ -46,6 +49,13 @@ object AppStylesheet : StyleSheet() {
         alignItems(AlignItems.Stretch)
         padding(100.px)
         textAlign("center")
+    }
+
+    val containerBackground by style {
+        display(DisplayStyle.Flex)
+        style{
+            MyStyleSheet.content
+        }
 
     }
 }
@@ -80,8 +90,17 @@ fun main() {
                 delay(500)
             }
         }*/
+
         Style(AppStylesheet)
         Style(MyStyleSheet)
+
+        Row{
+            //let's do description here
+            Container {
+                Text("Hello, my name BB. I am a developer of android development. " +
+                        "This is some text to check out the description part")
+            }
+        }
         Row{
             Container {
                 Img(
@@ -89,17 +108,27 @@ fun main() {
                     attrs = {
                         style {
                             borderRadius(100.percent)
+                            padding(16.px)
+                            width(150.px)
+                            height(150.px)
+                            marginLeft(50.percent)
+                            marginRight(50.percent)
                         }
                     }
                 )
                 Div(attrs = {
                     classes(MyStyleSheet.content)
                 }) {
-                    Text("Column 1")
+                    Text("[./kotlin/androidx-runtime.js] 1.21 MiB {main} [built] [109 warnings]\n" +
+                            "[./kotlin/kotlin-kotlin-stdlib-js-ir.js] 746 KiB {main} [built] [161 warnings]\n" +
+                            "[./kotlin/sengbh.js] 57.2 KiB {main} [built] [6 warnings]\n" +
+                            "[./kotlin/web-internal-web-core-runtime.js] 21.5 KiB {main} [built] [10 warnings]\n" +
+                            "[./kotlin/web-web-core.js] 289 KiB {main} [built] [55 warnings]")
                 }
             }
             Container {
-                Text("Column 2")
+                Text("Build your UIs with customizable widgets that you can use on all of your target platforms. " +
+                        "Use premade themes to get started quickly, or create your own visual style down to the very pixel.")
             }
         }
     }
