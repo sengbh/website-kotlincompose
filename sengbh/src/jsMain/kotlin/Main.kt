@@ -1,5 +1,8 @@
+import AppStylesheet.attr
+import AppStylesheet.attrContains
 import AppStylesheet.containerBackground
 import AppStylesheet.style
+import MyStyleSheet.style
 import androidx.compose.runtime.*
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
@@ -97,11 +100,26 @@ fun main() {
         Row{
             //let's do description here
             Container {
+                H1 {
+                    Text("David S")
+                }
+                Span (
+                    attrs = {
+                        style {
+                            color(Color.gray)
+                            paddingBottom(50.px)
+                            paddingTop(0.px)
+                        }
+                    }
+                ){
+                    Text("Dreamer, Aspired to build Web3 Social")
+                }
+                //body description here
                 Text("Hello, my name BB. I am a developer of android development. " +
                         "This is some text to check out the description part")
             }
         }
-        Row{
+        /*Row{
             Container {
                 Img(
                     "https://avatars.githubusercontent.com/u/6810041?v=4",
@@ -130,6 +148,6 @@ fun main() {
                 Text("Build your UIs with customizable widgets that you can use on all of your target platforms. " +
                         "Use premade themes to get started quickly, or create your own visual style down to the very pixel.")
             }
-        }
+        }*/
     }
 }
