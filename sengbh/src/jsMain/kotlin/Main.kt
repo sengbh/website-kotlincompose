@@ -5,6 +5,7 @@ import AppStylesheet.style
 import MyStyleSheet.style
 import androidx.compose.runtime.*
 import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.keywords.auto
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
 import org.w3c.fetch.Body
@@ -50,8 +51,8 @@ object AppStylesheet : StyleSheet() {
         display(DisplayStyle.Flex)
         flexDirection(FlexDirection.Row)
         alignItems(AlignItems.Stretch)
-        padding(100.px)
-        textAlign("center")
+        padding(50.px)
+        justifyContent(justifyContent = JustifyContent.Center)
     }
 
     val containerBackground by style {
@@ -96,10 +97,10 @@ fun main() {
 
         Style(AppStylesheet)
         Style(MyStyleSheet)
-
         Row{
-            //let's do description here
+            //First column on the left
             Container {
+                Text("Column 1")
                 H1 {
                     Text("David S")
                 }
@@ -107,17 +108,87 @@ fun main() {
                     attrs = {
                         style {
                             color(Color.gray)
-                            paddingBottom(50.px)
+                            paddingBottom(10.px)
                             paddingTop(0.px)
                         }
                     }
                 ){
-                    Text("Dreamer, Aspired to build Web3 Social")
+                    Text("Android Dev, Web3 Research, Aspired to build")
                 }
                 //body description here
+                Div (
+                    attrs = {
+                        style {
+                            fontWeight("bold")
+                            textAlign("left")
+                            paddingTop(0.px)
+                            paddingBottom(10.px)
+                            textDecoration("underline")
+                        }
+                    }
+                ){
+                    Text("About:")
+                }
+                //next line
                 Text("Hello, my name BB. I am a developer of android development. " +
-                        "This is some text to check out the description part")
+                        "This is some text to check out the description part"+
+                        "Just writng to fill in text to see more paragraph and how it looks on the UI front end.")
+
+                Div(
+                    attrs = {
+                        style {
+                            fontWeight("bold")
+                            textAlign("left")
+                            paddingTop(10.px)
+                            paddingBottom(5.px)
+                            textDecoration("underline")
+                        }
+                    }
+                ){
+                    Text("Technology")
+                }
             }
+
+            //Second column on the right
+            Container {
+                    Text("Column 2")
+                    Span(
+                        attrs = {
+                            style {
+                                textAlign("left")
+                                paddingTop(10.px)
+                            }
+                        }
+                    ){
+                        Text("Making a list here below")
+                        Ul(
+                            attrs = {
+                                style {
+
+                                }
+                            }
+                        ){
+                            Li{
+                                Text("This is a list number 1 and I want to fill in more text to see how it aligns with the left column")
+                            }
+                            Li{
+                                Text("This is a list number 2 and I want to fill in more text to see how it aligns with the left column"+
+                                "So far it looks pretty good. This is fine let's move on to the next task")
+                            }
+                            Li{
+                                Text("one")
+                            }
+                            Li{
+                                Text("one")
+                            }
+                        }
+                    }
+            }
+        }
+        Hr(null)
+        //let's make a second row after description. Let's get in some contact here
+        Row {
+            Text("Testing the row on the bottom of the description")
         }
         /*Row{
             Container {
