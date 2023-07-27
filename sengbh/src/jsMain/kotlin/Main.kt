@@ -45,7 +45,7 @@ object AppStylesheet : StyleSheet() {
 
 
         // custom property (or not supported out of a box)
-        property("font-family", "Arial, Helvetica, sans-serif")
+        property("font-family", "Noble, Helvetica, Arial, sans-serif")
     }
     val containerRow by style {// container is a class
         display(DisplayStyle.Flex)
@@ -75,7 +75,7 @@ fun Row (content: @Composable () -> Unit){
 
 
 @Composable
-fun Container(content: @Composable () -> Unit) {
+fun Column (content: @Composable () -> Unit) {
     Div(
         attrs = { classes(AppStylesheet.containerColumn) }
     ) {
@@ -99,7 +99,7 @@ fun main() {
         Style(MyStyleSheet)
         Row{
             //First column on the left
-            Container {
+            Column {
                 Text("Column 1")
                 H1 {
                     Text("David S")
@@ -150,7 +150,7 @@ fun main() {
             }
 
             //Second column on the right
-            Container {
+            Column {
                     Text("Column 2")
                     Span(
                         attrs = {
@@ -160,7 +160,19 @@ fun main() {
                             }
                         }
                     ){
-                        Text("Making a list here below")
+                        Div (
+                            attrs = {
+                                style {
+                                    fontWeight("bold")
+                                    textAlign("left")
+                                    paddingTop(0.px)
+                                    paddingBottom(10.px)
+                                    textDecoration("underline")
+                                }
+                            }
+                        ){
+                            Text("Project 1:")
+                        }
                         Ul(
                             attrs = {
                                 style {
@@ -177,6 +189,35 @@ fun main() {
                             }
                             Li{
                                 Text("one")
+                            }
+                        }
+
+                        Div (
+                            attrs = {
+                                style {
+                                    fontWeight("bold")
+                                    textAlign("left")
+                                    paddingTop(0.px)
+                                    paddingBottom(10.px)
+                                    textDecoration("underline")
+                                }
+                            }
+                        ){
+                            Text("Project 2:")
+                        }
+                        Ul(
+                            attrs = {
+                                style {
+
+                                }
+                            }
+                        ){
+                            Li{
+                                Text("This is a list number 1 and I want to fill in more text to see how it aligns with the left column")
+                            }
+                            Li{
+                                Text("This is a list number 2 and I want to fill in more text to see how it aligns with the left column"+
+                                        "So far it looks pretty good. This is fine let's move on to the next task")
                             }
                             Li{
                                 Text("one")
