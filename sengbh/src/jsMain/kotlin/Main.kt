@@ -4,10 +4,12 @@ import AppStylesheet.containerBackground
 import AppStylesheet.style
 import MyStyleSheet.style
 import androidx.compose.runtime.*
+import org.jetbrains.compose.web.attributes.ARel
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.css.keywords.auto
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
+import org.w3c.dom.BoxQuadOptions
 import org.w3c.fetch.Body
 
 
@@ -97,14 +99,14 @@ fun main() {
 
         Style(AppStylesheet)
         Style(MyStyleSheet)
-        Row{
+        Row {
             //First column on the left
             Column {
                 Text("Column 1")
                 H1 {
                     Text("David S")
                 }
-                Span (
+                Span(
                     attrs = {
                         style {
                             color(Color.gray)
@@ -112,11 +114,11 @@ fun main() {
                             paddingTop(0.px)
                         }
                     }
-                ){
+                ) {
                     Text("Android Dev, Web3 Research, Aspired to build")
                 }
                 //body description here
-                Div (
+                Div(
                     attrs = {
                         style {
                             fontWeight("bold")
@@ -126,13 +128,35 @@ fun main() {
                             textDecoration("underline")
                         }
                     }
-                ){
+                ) {
                     Text("About:")
                 }
                 //next line
-                Text("Hello, my name BB. I am a developer of android development. " +
-                        "This is some text to check out the description part"+
-                        "Just writng to fill in text to see more paragraph and how it looks on the UI front end.")
+                Div(
+                    attrs = {
+                        style {
+                            textAlign("left")
+                        }
+                    }
+                ){
+                    Br{style {
+                        padding(50.px)
+                    }}
+                    Text(
+                        "Results-driven developer with expertise in Web3, Blockchain community management, Android development, and project management. Skilled in delivering exceptional software solutions, fostering community engagement, and effectively managing projects."
+                    )
+                    Text(
+                        "As a Blockchain community manager, I drive engagement, host events, manage social media, and provide educational resources to promote blockchain adoption and collaboration."
+                    )
+                    Br(null)
+                    Text(
+                        "In Android development, I build user-friendly applications using Kotlin and Jetpack Compose, while continually expanding my skills in this area."
+                    )
+                    Br(null)
+                    Text(
+                        "With project management expertise, I lead cross-functional teams, set goals, manage resources, and ensure timely delivery through effective communication and collaboration. Passionate about technology, blockchain innovation, and community building, I thrive in dynamic environments and adapt quickly to emerging trends"
+                    )
+                }
 
                 Div(
                     attrs = {
@@ -144,92 +168,114 @@ fun main() {
                             textDecoration("underline")
                         }
                     }
-                ){
+                ) {
                     Text("Technology")
                 }
             }
 
             //Second column on the right
             Column {
-                    Text("Column 2")
-                    Span(
-                        attrs = {
-                            style {
-                                textAlign("left")
-                                paddingTop(10.px)
-                            }
-                        }
-                    ){
-                        Div (
-                            attrs = {
-                                style {
-                                    fontWeight("bold")
-                                    textAlign("left")
-                                    paddingTop(0.px)
-                                    paddingBottom(10.px)
-                                    textDecoration("underline")
-                                }
-                            }
-                        ){
-                            Text("Project 1:")
-                        }
-                        Ul(
-                            attrs = {
-                                style {
-
-                                }
-                            }
-                        ){
-                            Li{
-                                Text("This is a list number 1 and I want to fill in more text to see how it aligns with the left column")
-                            }
-                            Li{
-                                Text("This is a list number 2 and I want to fill in more text to see how it aligns with the left column"+
-                                "So far it looks pretty good. This is fine let's move on to the next task")
-                            }
-                            Li{
-                                Text("one")
-                            }
-                        }
-
-                        Div (
-                            attrs = {
-                                style {
-                                    fontWeight("bold")
-                                    textAlign("left")
-                                    paddingTop(0.px)
-                                    paddingBottom(10.px)
-                                    textDecoration("underline")
-                                }
-                            }
-                        ){
-                            Text("Project 2:")
-                        }
-                        Ul(
-                            attrs = {
-                                style {
-
-                                }
-                            }
-                        ){
-                            Li{
-                                Text("This is a list number 1 and I want to fill in more text to see how it aligns with the left column")
-                            }
-                            Li{
-                                Text("This is a list number 2 and I want to fill in more text to see how it aligns with the left column"+
-                                        "So far it looks pretty good. This is fine let's move on to the next task")
-                            }
-                            Li{
-                                Text("one")
-                            }
+                Text("Column 2")
+                Span(
+                    attrs = {
+                        style {
+                            textAlign("left")
+                            paddingTop(10.px)
                         }
                     }
+                ) {
+                    Div(
+                        attrs = {
+                            style {
+                                fontWeight("bold")
+                                textAlign("left")
+                                paddingTop(0.px)
+                                paddingBottom(10.px)
+                                textDecoration("underline")
+                            }
+                        }
+                    ) {
+                        Text("Project 1:")
+                    }
+                    Ul(
+                        attrs = {
+                            style {
+
+                            }
+                        }
+                    ) {
+                        Li {
+                            Text("This is a list number 1 and I want to fill in more text to see how it aligns with the left column")
+                        }
+                        Li {
+                            Text(
+                                "This is a list number 2 and I want to fill in more text to see how it aligns with the left column" +
+                                        "So far it looks pretty good. This is fine let's move on to the next task"
+                            )
+                        }
+                        Li {
+                            Text("one")
+                        }
+                    }
+
+                    Div(
+                        attrs = {
+                            style {
+                                fontWeight("bold")
+                                textAlign("left")
+                                paddingTop(0.px)
+                                paddingBottom(10.px)
+                                textDecoration("underline")
+                            }
+                        }
+                    ) {
+                        Text("Project 2:")
+                    }
+                    Ul(
+                        attrs = {
+                            style {
+
+                            }
+                        }
+                    ) {
+                        Li {
+                            Text("This is a list number 1 and I want to fill in more text to see how it aligns with the left column")
+                        }
+                        Li {
+                            Text(
+                                "This is a list number 2 and I want to fill in more text to see how it aligns with the left column" +
+                                        "So far it looks pretty good. This is fine let's move on to the next task"
+                            )
+                        }
+                        Li {
+                            Text("one")
+                        }
+                    }
+                }
             }
         }
         Hr(null)
         //let's make a second row after description. Let's get in some contact here
         Row {
             Text("Testing the row on the bottom of the description")
+        }
+
+        Div (attrs = {style { padding(100.px) }}){
+
+        }
+        //this is for footer
+        Div  ({style {
+            position(position = Position.Fixed)
+            padding(100.px)
+            bottom(0.px)
+            left(0.px)
+            right(0.px)
+            textAlign("center")
+            background("gray")
+        }})
+        {
+
+            Text("Made with \uD83E\uDD70 from scratch with Kotlin Compose")
         }
         /*Row{
             Container {
