@@ -169,7 +169,16 @@ fun main() {
                         }
                     }
                 ) {
-                    Text("Technology")
+                    Text("Web3")
+                }
+                Div(
+                        attrs = {
+                            style {
+                                textAlign("left")
+                            }
+                        }
+                ){
+
                 }
             }
 
