@@ -1,16 +1,7 @@
-import AppStylesheet.attr
-import AppStylesheet.attrContains
-import AppStylesheet.containerBackground
-import AppStylesheet.style
-import MyStyleSheet.style
-import androidx.compose.runtime.*
-import org.jetbrains.compose.web.attributes.ARel
+import androidx.compose.runtime.Composable
 import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.css.keywords.auto
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
-import org.w3c.dom.BoxQuadOptions
-import org.w3c.fetch.Body
 
 
 object MyVariables {
