@@ -39,6 +39,7 @@ object AppStylesheet : StyleSheet() {
 
         // custom property (or not supported out of a box)
         property("font-family", "Noble, Helvetica, Arial, sans-serif")
+        property("font-size", 14.px)
     }
     val containerRow by style {// container is a class
         display(DisplayStyle.Flex)
@@ -122,7 +123,7 @@ fun main() {
                 ) {
                     Text("About:")
                 }
-                //next line
+                //This is description under ABOUT
                 Div(
                     attrs = {
                         style {
@@ -130,23 +131,19 @@ fun main() {
                         }
                     }
                 ){
-                    Br{style {
-                        padding(50.px)
-                    }}
-                    Text(
-                        "Results-driven developer with expertise in Web3, Blockchain community management, Android development, and project management. Skilled in delivering exceptional software solutions, fostering community engagement, and effectively managing projects."
-                    )
-                    Text(
-                        "As a Blockchain community manager, I drive engagement, host events, manage social media, and provide educational resources to promote blockchain adoption and collaboration."
-                    )
+                   Text("Results-driven developer with expertise in Web3, Blockchain community management, Android development, and project management. \n")
                     Br(null)
-                    Text(
-                        "In Android development, I build user-friendly applications using Kotlin and Jetpack Compose, while continually expanding my skills in this area."
-                    )
                     Br(null)
-                    Text(
-                        "With project management expertise, I lead cross-functional teams, set goals, manage resources, and ensure timely delivery through effective communication and collaboration. Passionate about technology, blockchain innovation, and community building, I thrive in dynamic environments and adapt quickly to emerging trends"
-                    )
+                    Text("Skilled in delivering exceptional software solutions, fostering community engagement, and effectively managing projects.\n")
+                    Br(null)
+                    Br(null)
+                    Text("As a Blockchain community manager, I drive engagement, host events, manage social media, and provide educational resources to promote blockchain adoption and collaboration.\n")
+                    Br(null)
+                    Br(null)
+                    Text("In Android development, I build user-friendly applications using Kotlin and Jetpack Compose, while continually expanding my skills in this area.")
+                    Br(null)
+                    Br(null)
+                    Text("With project management expertise, I lead cross-functional teams, set goals, manage resources, and ensure timely delivery through effective communication and collaboration. Passionate about technology, blockchain innovation, and community building, I thrive in dynamic environments and adapt quickly to emerging trends")
                 }
 
                 Div(
