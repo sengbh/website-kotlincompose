@@ -115,7 +115,7 @@ fun main() {
                         }
                     }
                 ) {
-                    Text("Android Dev, Web3 Research, Aspired to build")
+                    Text("Android Dev, Web3 Research, Software Dev, Aspired to build")
                 }
                 //body description here
                 Div(
@@ -171,10 +171,28 @@ fun main() {
                         attrs = {
                             style {
                                 textAlign("left")
+                                paddingTop(10.px)
                             }
                         }
                 ){
-
+                    Text("Description: I have over a year of technical experience and still learning in Ethereum Smart Contracts and Binance Smart Chain (BSC) implementation utilizing frameworks such as Truffle and Hardhat etc.")
+                }
+                Ul(
+                    attrs = {
+                        style {
+                            textAlign("left")
+                        }
+                    }
+                ){
+                    Li {
+                        Text("Over 3+ years of experience in trading on Decentralized Exchanged such as IDEX, Switcheo(DEMEX), Uniswap, and more.")
+                    }
+                    Li {
+                        Text("Over 3+ years of experience in the community moderator/admin and web3 project management utilzing tools such Telegrap, Discord, Reddit, Facebook groups and more")
+                    }
+                    Li {
+                        Text("Over 1+ year in technical development in smart contracts utilizing tools such as Truffle/Hardhat and language such as Node.js and Web3.js")
+                    }
                 }
             }
 
@@ -226,7 +244,6 @@ fun main() {
                     Ul(
                         attrs = {
                             style {
-
                             }
                         }
                     ) {
