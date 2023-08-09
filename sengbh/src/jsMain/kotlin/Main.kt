@@ -1,16 +1,7 @@
-import AppStylesheet.attr
-import AppStylesheet.attrContains
-import AppStylesheet.containerBackground
-import AppStylesheet.style
-import MyStyleSheet.style
-import androidx.compose.runtime.*
-import org.jetbrains.compose.web.attributes.ARel
+import androidx.compose.runtime.Composable
 import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.css.keywords.auto
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
-import org.w3c.dom.BoxQuadOptions
-import org.w3c.fetch.Body
 
 
 object MyVariables {
@@ -48,6 +39,7 @@ object AppStylesheet : StyleSheet() {
 
         // custom property (or not supported out of a box)
         property("font-family", "Noble, Helvetica, Arial, sans-serif")
+        property("font-size", 14.px)
     }
     val containerRow by style {// container is a class
         display(DisplayStyle.Flex)
@@ -86,7 +78,6 @@ fun Column (content: @Composable () -> Unit) {
 }
 
 
-
 fun main() {
     renderComposable(rootElementId = "root") {
         /*var count by remember { mutableStateOf(0) }
@@ -99,6 +90,15 @@ fun main() {
 
         Style(AppStylesheet)
         Style(MyStyleSheet)
+        Row {
+            Column {
+                Text("This column should be in the middle This column should be in the middle This column should be in the middle")
+            }
+        }
+        Row {
+            Column { Text("Column 1: This column should be on the left. This column should be on the left This column should be on the left ") }
+            Column { Text("Column 2: This column should be on the right. This column should be on the right. This column should be on the left") }
+        }
         Row {
             //First column on the left
             Column {
@@ -115,7 +115,7 @@ fun main() {
                         }
                     }
                 ) {
-                    Text("Android Dev, Web3 Research, Aspired to build")
+                    Text("Android Dev, Web3 Research, Software Dev, Aspired to build")
                 }
                 //body description here
                 Div(
@@ -131,7 +131,7 @@ fun main() {
                 ) {
                     Text("About:")
                 }
-                //next line
+                //This is description under ABOUT
                 Div(
                     attrs = {
                         style {
@@ -139,23 +139,19 @@ fun main() {
                         }
                     }
                 ){
-                    Br{style {
-                        padding(50.px)
-                    }}
-                    Text(
-                        "Results-driven developer with expertise in Web3, Blockchain community management, Android development, and project management. Skilled in delivering exceptional software solutions, fostering community engagement, and effectively managing projects."
-                    )
-                    Text(
-                        "As a Blockchain community manager, I drive engagement, host events, manage social media, and provide educational resources to promote blockchain adoption and collaboration."
-                    )
+                   Text("Results-driven developer with expertise in Web3, Blockchain community management, Android development, and project management. \n")
                     Br(null)
-                    Text(
-                        "In Android development, I build user-friendly applications using Kotlin and Jetpack Compose, while continually expanding my skills in this area."
-                    )
                     Br(null)
-                    Text(
-                        "With project management expertise, I lead cross-functional teams, set goals, manage resources, and ensure timely delivery through effective communication and collaboration. Passionate about technology, blockchain innovation, and community building, I thrive in dynamic environments and adapt quickly to emerging trends"
-                    )
+                    Text("Skilled in delivering exceptional software solutions, fostering community engagement, and effectively managing projects.\n")
+                    Br(null)
+                    Br(null)
+                    Text("As a Blockchain community manager, I drive engagement, host events, manage social media, and provide educational resources to promote blockchain adoption and collaboration.\n")
+                    Br(null)
+                    Br(null)
+                    Text("In Android development, I build user-friendly applications using Kotlin and Jetpack Compose, while continually expanding my skills in this area.")
+                    Br(null)
+                    Br(null)
+                    Text("With project management expertise, I lead cross-functional teams, set goals, manage resources, and ensure timely delivery through effective communication and collaboration. Passionate about technology, blockchain innovation, and community building, I thrive in dynamic environments and adapt quickly to emerging trends")
                 }
 
                 Div(
@@ -169,7 +165,34 @@ fun main() {
                         }
                     }
                 ) {
-                    Text("Technology")
+                    Text("Web3 Research and SmartContract Experience")
+                }
+                Div(
+                        attrs = {
+                            style {
+                                textAlign("left")
+                                paddingTop(10.px)
+                            }
+                        }
+                ){
+                    Text("Description: I have over a year of technical experience and still learning in Ethereum Smart Contracts and Binance Smart Chain (BSC) implementation utilizing frameworks such as Truffle and Hardhat etc.")
+                }
+                Ul(
+                    attrs = {
+                        style {
+                            textAlign("left")
+                        }
+                    }
+                ){
+                    Li {
+                        Text("Over 3+ years of experience in trading on Decentralized Exchanged such as IDEX, Switcheo(DEMEX), Uniswap, and more.")
+                    }
+                    Li {
+                        Text("Over 3+ years of experience in the community moderator/admin and web3 project management utilzing tools such Telegrap, Discord, Reddit, Facebook groups and more")
+                    }
+                    Li {
+                        Text("Over 1+ year in technical development in smart contracts utilizing tools such as Truffle/Hardhat and language such as Node.js and Web3.js")
+                    }
                 }
             }
 
@@ -188,6 +211,19 @@ fun main() {
                         attrs = {
                             style {
                                 fontWeight("bold")
+                                textAlign("center")
+                                paddingTop(0.px)
+                                paddingBottom(10.px)
+                                textDecoration("underline")
+                            }
+                        }
+                    ) {
+                        Text("Web2 and Development Experience")
+                    }
+                    Div(
+                        attrs = {
+                            style {
+                                fontWeight("bold")
                                 textAlign("left")
                                 paddingTop(0.px)
                                 paddingBottom(10.px)
@@ -195,26 +231,35 @@ fun main() {
                             }
                         }
                     ) {
-                        Text("Project 1:")
+                        Text("Project Name: Global Customer Hierarchy at Verizon")
+                    }
+                    Div(
+                        attrs = {
+                            style {
+                            }
+                        }
+                    ){
+                        Text("Description: The objective of this project is to implement a unified hierarchy model for business customer master data, establishing associations between customers and their internal billing accounts, provisioning accounts, business segments, sales staff, service teams, and online entitlements.")
                     }
                     Ul(
                         attrs = {
                             style {
-
                             }
                         }
                     ) {
                         Li {
-                            Text("This is a list number 1 and I want to fill in more text to see how it aligns with the left column")
+                            Text("Evaluated existing complex systems to identify areas of improvement, focusing on debugging issues for production and how it would help sharing and retrieving data from ups and downstream systems.")
                         }
                         Li {
                             Text(
-                                "This is a list number 2 and I want to fill in more text to see how it aligns with the left column" +
-                                        "So far it looks pretty good. This is fine let's move on to the next task"
+                                "Utilized the HP Fortify Software tool to perform security fixes and address security vulnerabilities in the application (GCH)"
                             )
                         }
                         Li {
-                            Text("one")
+                            Text("Applied expertise in analyzing data using statistical techniques, providing support for tasks such as Elastic/Solr indexing and application regression in various environments; Production, UAT/STG, QAs. ")
+                        }
+                        Li {
+                            Text("Developed and implemented Apigee APIs for the Oracle Cloud Infrastructure (OCI)")
                         }
                     }
 
@@ -229,7 +274,14 @@ fun main() {
                             }
                         }
                     ) {
-                        Text("Project 2:")
+                        Text("Project Name: Master Data Management at Verizon")
+                    }
+                    Div(
+                        attrs = {
+                            style {  }
+                        }
+                    ){
+                        Text("Description: The MDM portal is an application that provides a single point of entry for all Master Data Management applications such as Global Product Hierarchy (GPH), Global Product Reference (GPR), Monthly Revenue Values (MRV), Internal Account Repository (IAR) and more.")
                     }
                     Ul(
                         attrs = {
@@ -239,19 +291,52 @@ fun main() {
                         }
                     ) {
                         Li {
-                            Text("This is a list number 1 and I want to fill in more text to see how it aligns with the left column")
+                            Text("Proactively monitored and maintained production issues, resolving issues promptly to ensure it meets client’s expectation")
                         }
                         Li {
                             Text(
-                                "This is a list number 2 and I want to fill in more text to see how it aligns with the left column" +
-                                        "So far it looks pretty good. This is fine let's move on to the next task"
+                                "Conducted thorough regression testing, including automation, performance, and functional testing, ensuring high-quality software deliverables."
                             )
                         }
                         Li {
-                            Text("one")
+                            Text("Demonstrated expertise in Agile methodology, actively participating in Daily Stand-ups, Sprint Retrospectives, Sprint Reviews, Sprint Planning, and Backlog grooming sessions.")
+                        }
+                    }
+                    //put here
+                    Div(
+                        attrs = {
+                            style {
+                                fontWeight("bold")
+                                textAlign("left")
+                                paddingTop(0.px)
+                                paddingBottom(10.px)
+                                textDecoration("underline")
+                            }
+                        }
+                    ) {
+                        Text("Project Name: Fullstack Developer at Infosys")
+                    }
+                    Ul(
+                        attrs = {
+                            style {
+
+                            }
+                        }
+                    ) {
+                        Li {
+                            Text("Developed the front end UI application utilizing the Angular Framework")
+                        }
+                        Li {
+                            Text(
+                                "Developed backend using springtool and hibernate frameworks"
+                            )
+                        }
+                        Li {
+                            Text("Created data utilizing oracle database SQL")
                         }
                     }
                 }
+
             }
         }
         Hr(null)
@@ -265,14 +350,13 @@ fun main() {
         }
         //this is for footer
         Div  ({style {
-            position(position = Position.Fixed)
-            padding(100.px)
+            position(position = Position.Relative)
+            padding(70.px)
             bottom(0.px)
             left(0.px)
             right(0.px)
             textAlign("center")
-            background("gray")
-            //test test
+            background("lightgray")
         }})
         {
 
