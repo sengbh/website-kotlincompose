@@ -1,4 +1,5 @@
 import androidx.compose.runtime.Composable
+import org.jetbrains.compose.web.attributes.*
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.renderComposable
@@ -344,12 +345,22 @@ fun main() {
         Row {
             Text("Testing the row on the bottom of the description")
         }
-
-        Div (attrs = {style { padding(100.px) }}){
+        
+        A(
+            attrs = {
+                href("https://cloudpdf.io/view/DsNEgC0el")
+                target(ATarget.Blank)
+                hreflang("en")
+                download("https://www.embedpdf.com/org/7170/document/fa67d5cd-fdd7-4b01-a4b3-138d1d2a6f43/analytics")
+            }
+        ) {
+            Text("link")
+        }
+        Div(attrs = { style { padding(100.px) } }) {
 
         }
         //this is for footer
-        Div  ({style {
+        Div({style {
             position(position = Position.Relative)
             padding(70.px)
             bottom(0.px)
@@ -395,3 +406,4 @@ fun main() {
         }*/
     }
 }
+
