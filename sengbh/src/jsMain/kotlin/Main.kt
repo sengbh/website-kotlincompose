@@ -93,7 +93,19 @@ fun main() {
         Style(MyStyleSheet)
         Row {
             Column {
-                Text("This column should be in the middle This column should be in the middle This column should be in the middle")
+                Column {
+                    Img(
+                        "https://cdn.pixabay.com/photo/2017/08/22/11/56/linked-in-2668696_960_720.png",
+                        attrs = {
+                            style {
+                                borderRadius(100.percent)
+                                width(100.px)
+                                height(100.px)
+                            }
+                        }
+                    )
+                    Text("LINK")
+                }
             }
         }
         Row {
