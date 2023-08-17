@@ -104,7 +104,9 @@ fun main() {
                             }
                         }
                     )
-                    Text("LINK")
+                    Text("Link 1    ")
+                    Text("Link 2    ")
+                    Text("link 3")
                 }
             }
         }
